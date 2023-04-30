@@ -15,7 +15,7 @@ Vagrant.configure("2") do |config|
     m.vm.hostname = "challenge-vm"
     #nfs
     m.vm.synced_folder ".", "/vagrant", type: "nfs"
-    m.vm.provision "shell", path: "dependencies.sh"
+    m.vm.provision "shell", path: "dependencies.sh", run: "never"
   end
 
 end
