@@ -1,2 +1,2 @@
 # technical-challenge-local
-This is a repository to create local infrastructure with the application in kubernetes running.
+This is a repository to create local infrastructure using Vagrant and deploy the application in Kubernetes.
