@@ -22,13 +22,11 @@ sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 #k3d install
 curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
 
-#download repository file deployment.yaml to create my kubernetes cluster
+# download manifest file deployment.yaml from GitHub to create my kubernetes cluster
 curl -LJO /home/vagrant/ https://github.com/italoleitecg/technical-challenge-local/raw/main/deployment.yaml -o /home/vagrant/deployment.yaml
-#curl -u italoleitecg:"${var.github_token}" -o /home/ubuntu/Vagrantfile https://raw.githubusercontent.com/italoleitecg/aula_pentest_impacta/f763e2fb0267966d70ac32dbfaa1fec27f806463/Vagrantfile
-#curl -u italoleitecg:"${var.github_token}" -o /home/ubuntu/deployment.yaml https://raw.githubusercontent.com/italoleitecg/technical-challenge/47683e93c119183e79722b3a7b6237478f76086f/deployment.yaml
 
-#create cluster
+# create cluster with port binding to port 80.
 sudo k3d cluster create grafanacluster -p "80:30000@loadbalancer"
 
-#run deployment
+# run deployment manifest
 sudo kubectl apply -f /home/vagrant/deployment.yaml
