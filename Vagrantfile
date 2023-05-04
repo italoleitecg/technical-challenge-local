@@ -14,10 +14,10 @@ Vagrant.configure("2") do |config|
   config.vm.define "challenge-vm" do |m|
     m.vm.network "private_network", ip: "172.17.177.51"
     m.vm.hostname = "challenge-vm"
-    # here I force path mapped between vm and host
-    m.vm.synced_folder ".", "/vagrant", type: "nfs"
     # that is my bash script to install docker, kubernetes and linux packages
     m.vm.provision "shell", path: "dependencies.sh"
+    m.vm.provision "shell", inline: "echo 'The challenge VM successfully created!, wait about 2 minutes and access IP http://172.17.177.51'"
+
   end
 
 end
